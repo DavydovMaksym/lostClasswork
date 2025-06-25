@@ -1,0 +1,57 @@
+#include <iostream>
+
+int main()
+{
+    const int rows = 3;
+    const int cols = 4;
+    int arr[rows][cols] = {
+        {3, 5, 6, 7},
+        {12, 1, 1, 1},
+        {0, 7, 12, 1}
+    };
+
+    int colSums[cols] = { 0 };
+    int totalSum = 0;
+
+    for (int i = 0; i < rows; ++i)
+    {
+        int rowSum = 0;
+        for (int j = 0; j < cols; ++j)
+        {
+            int value = arr[i][j];
+            if (value < 10)
+            {
+                std::cout << "   " << value;
+            }
+            else
+            {
+                std::cout << "  " << value;
+            }
+            rowSum += value;
+            colSums[j] += value;
+        }
+        totalSum += rowSum;
+        std::cout << "   |  " << rowSum << std::endl;
+    }
+
+    for (int i = 0; i < cols; ++i)
+    {
+        std::cout << "----";
+    }
+    std::cout << "------" << std::endl;
+
+    for (int j = 0; j < cols; ++j)
+    {
+        if (colSums[j] < 10)
+        {
+            std::cout << "   " << colSums[j];
+        }
+        else
+        {
+            std::cout << "  " << colSums[j];
+        }
+    }
+    std::cout << "   |  " << totalSum << std::endl;
+
+    return 0;
+}
