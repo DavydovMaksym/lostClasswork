@@ -1,0 +1,52 @@
+#include <iostream>
+
+int main()
+{
+    const int rows = 5;
+    const int colsA = 10;
+    const int colsB = 5;
+
+    int A[rows][colsA];
+    int B[rows][colsB];
+
+    std::cout << "Enter the elements of array A (5 rows of 10 numbers each):\n";
+
+    for (int i = 0; i < rows; ++i)
+    {
+        std::cout << "Row " << i + 1 << ": ";
+        for (int j = 0; j < colsA; ++j)
+        {
+            std::cin >> A[i][j];
+        }
+    }
+
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < colsB; ++j)
+        {
+            B[i][j] = A[i][j * 2] + A[i][j * 2 + 1];
+        }
+    }
+
+    std::cout << "\nArray A (5x10):\n";
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < colsA; ++j)
+        {
+            std::cout << A[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
+
+    std::cout << "\nArray B (5x5):\n";
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < colsB; ++j)
+        {
+            std::cout << B[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
