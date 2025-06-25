@@ -1,0 +1,45 @@
+#include <iostream>
+
+int main()
+{
+    const int rows = 3;
+    const int cols = 4;
+    int arr[rows][cols] =
+    {
+        {5, 3, 7, 2},
+        {1, 9, 6, 4},
+        {8, 0, 2, 3}
+    };
+
+    int sum = 0;
+    int count = 0;
+    int min = arr[0][0];
+    int max = arr[0][0];
+
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < cols; ++j)
+        {
+            int value = arr[i][j];
+            sum += value;
+            if (value < min)
+            {
+                min = value;
+            }
+            if (value > max)
+            {
+                max = value;
+            }
+            ++count;
+        }
+    }
+
+    double average = sum / count;
+
+    std::cout << "Sum of elements: " << sum << std::endl;
+    std::cout << "Average of elements: " << average << std::endl;
+    std::cout << "Minimum element: " << min << std::endl;
+    std::cout << "Maximum element: " << max << std::endl;
+
+    return 0;
+}
